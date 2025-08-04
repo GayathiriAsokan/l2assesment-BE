@@ -1,0 +1,39 @@
+
+
+spring:
+  profile:
+    active: prod
+  cloud:
+    gateway:
+      routes:
+        - id: auth-service
+          uri: https://auth-service.onrender.com
+          predicates:
+            - Path=/api/auth/**
+        - id: product-service
+          uri: https://product-service.onrender.com
+          predicates:
+            - Path=/api/products/**
+        - id: warehouse-service
+          uri: https://warehouse-service.onrender.com
+          predicates:
+            - Path=/api/warehouses/**
+        - id: po-service
+          uri: https://po-service.onrender.com
+          predicates:
+            - Path=/api/purchase-orders/**
+        - id: supplier-service
+          uri: https://po-service.onrender.com
+          predicates:
+            - Path=/api/suppliers/**
+        - id: alert-service
+          uri: https://alert-service.onrender.com
+          predicates:
+            - Path=/api/alerts/**
+        - id: reporting-service
+          uri: https://report-service.onrender.com
+          predicates:
+            - Path=/api/reports/**
+
+jwt:
+  secret: "QwErTyUiOpAsDfGhJkLzXcVbNm1234567890abcd"
